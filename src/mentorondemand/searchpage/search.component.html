@@ -1,0 +1,36 @@
+<div class="container">
+        <h1 class="search-head">MENTOR ON DEMAND</h1>
+        <div class="search-content">
+                <form #myForm="ngForm">
+                        <div class="form-group row">
+                          <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Slot Details</label>
+                          <div class="col-sm-10">
+                                <select class="form-control" id="exampleFormControlSelect1" #slotKey>
+                                        <option *ngFor="let slot of slotDetails" 
+                                            [value]="slot.value">
+                                            {{slot.value}}
+                                        </option>
+                                    </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">Technology</label>
+                          <div class="col-sm-10">
+                                <select class="form-control" id="exampleFormControlSelect1" #techKey>
+                                        <option *ngFor="let tech of technologyDetails" 
+                                            [value]="tech.name">
+                                            {{tech.name}}
+                                        </option>
+                                    </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary float-right" (click)="getMentorDetails(myForm,slotKey,techKey);" >Search</button>
+                          </div>
+                        </div>
+                      </form>
+        </div>
+        <router-outlet></router-outlet>
+</div>
+    

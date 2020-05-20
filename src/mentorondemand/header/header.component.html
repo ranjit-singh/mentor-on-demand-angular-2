@@ -1,0 +1,23 @@
+<header class="header">
+    <div class="container header-container">
+            <a class="logo" [routerLink]="['home']">
+                <img src="../../assets/images/logo.png" alt="">
+            </a>
+            <ul class="nav log-reg">
+                <li *ngIf="!isAuthenticated$"><a class="nav-link" [routerLink]="['login']">Login</a></li>
+                <li *ngIf="!isAuthenticated$" class="log-reg-sep"><span class="nav-link">|</span></li>
+                <li *ngIf="!isAuthenticated$"><a class="nav-link" [routerLink]="['signup']">Mentor SignUp</a></li>
+                <li *ngIf="isAuthenticated$">
+                    <div class="user-dropdown dropdown">
+                        <div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-img" src="../../assets/images/user.png" alt="">
+                            <span>{{displayName}}</span>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" [routerLink]="['/home']" (click)="logOut()">Logout</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+    </div>
+</header>
